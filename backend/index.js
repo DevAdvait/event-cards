@@ -12,7 +12,7 @@ const PORT = 5000;
 const MONGODB_URI =
   "mongodb+srv://boogeymanrt:iA7SaCXWsBykjU5s@cluster0.ycgltkb.mongodb.net/?retryWrites=true&w=majority"; // Replace with your MongoDB URI
 
-  mongoose
+mongoose
   .connect(MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -33,20 +33,15 @@ app.post("/submitFormData", async (req, res) => {
   }
 });
 
-
-
-app.get('/events', async (req, res) => {
-    try {
-      const events = await Event.find();
-      res.json(events);
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: 'Server error' });
-    }
-  });
-
-
-
+app.get("/events", async (req, res) => {
+  try {
+    const events = await Event.find();
+    res.json(events);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error" });
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

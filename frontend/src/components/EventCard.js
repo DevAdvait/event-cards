@@ -65,7 +65,7 @@ const EventCard = () => {
   }
 
   return (
-    <div>
+    <div className='event-card-container'>
       <div className="filter-bar">
         <InputGroup className="mb-3">
           <InputGroup.Text>Location</InputGroup.Text>
