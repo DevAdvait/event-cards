@@ -4,6 +4,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import FormControl from 'react-bootstrap/FormControl';
 import InputGroup from 'react-bootstrap/InputGroup';
+import { AiFillCloseCircle } from 'react-icons/fa';
 
 const EventCard = () => {
   const [events, setEvents] = useState([]);
@@ -56,6 +57,13 @@ const EventCard = () => {
     event.location.toLowerCase().includes(locationFilter.toLowerCase())
   );
 
+
+  const handleClearFilter = () => {
+    setSortedByRating(false)
+    setSortedByRating(false)
+    setLocationFilter('')
+  }
+
   return (
     <div>
       <div className="filter-bar">
@@ -72,6 +80,9 @@ const EventCard = () => {
         </Button>
         <Button variant="primary" onClick={handleSortByRating}>
           Rating {sortedByRating ? '⬆️' : '⬇️'}
+        </Button>
+        <Button variant='primary' onClick={handleClearFilter}>
+          Clear 
         </Button>
       </div>
       {filteredEvents.map((event) => (
